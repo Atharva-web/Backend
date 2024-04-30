@@ -13,7 +13,10 @@ const videoSchema = new Schema({
         required: true,
         index: true
     },
-    description: String,
+    description: {
+        type: String,
+        required: true
+    },
     thumbnail: {
         type: String, // url stored in cloudinary
         required: true

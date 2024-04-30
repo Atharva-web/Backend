@@ -1,4 +1,6 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
+
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 
@@ -24,7 +26,7 @@ const userSchema = new Schema({
     avatar: {
         type: String, // url stored in cloudinary service
         required: true,
-        // default: ?
+        // default: ? // default image can also be stored in cloudinary
     },
     coverImage: {
         type: String // url stored in cloudinary service
@@ -62,6 +64,9 @@ userSchema.pre("save", function(next) {
         return next();
     }
 });
+
+
+// defining several methods to userSchema
 
 userSchema.methods.isPasswordCorrect = async function(password) {
     return await bcrypt.compare(password, this.password);
