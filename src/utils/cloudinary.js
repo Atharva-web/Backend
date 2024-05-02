@@ -41,5 +41,5 @@ export { uploadOnCloudinary };
     or let's say we only allow files upto 100 MB,
     if user tries to upload a file of 150 MB, even if our local system can afford to keep the file,
     we wouldn't want to store such big files on our cloud ("Cloudinary")
-    in such case, we will remove the file from local system also
+    in such case, we will remove the file from local system too
 */
