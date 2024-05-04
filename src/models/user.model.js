@@ -55,9 +55,9 @@ const userSchema = new Schema({
 // "this" in arrow function is lexically scoped
 // "this" has access to all the fields of the schema
 
-userSchema.pre("save", function(next) {
+userSchema.pre("save", async function(next) {
     if(this.isModified("password")) {
-        this.password = bcrypt.hash(this.password, 10);
+        this.password = await bcrypt.hash(this.password, 10);
         next(); // call next to pass this flag forward --> continue the process
     }
     else {
@@ -99,4 +99,4 @@ userSchema.methods.generateAccessToken = function() {
     )
 }
 
-export const user = model("User", userSchema);
+export const User = model("User", userSchema);

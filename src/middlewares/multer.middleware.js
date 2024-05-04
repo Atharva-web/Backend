@@ -9,4 +9,5 @@ const storage = multer.diskStorage({
                 }
 });
 
-const upload = multer({ storage: storage });
+export const upload = multer({ storage });
+// upload is an instance of multer()

@@ -1,3 +1,5 @@
+// console.log() and see everything.
+
 /*
 // the task is to ask shake everyone's hand
 // before greeting them
@@ -35,3 +37,17 @@ const asyncHandler = (fn) => {
 }
 
 */
+
+const person = {
+    name: "Atharva",
+    age: 21
+};
+
+// store props in variables
+// const name = person.name;
+// const age = person.age;
+
+// object destructuring
+const { name, age } = person;
+
+console.log(name);
