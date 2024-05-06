@@ -50,4 +50,8 @@ const person = {
 // object destructuring
 const { name, age } = person;
 
-console.log(name);
+console.log(age);
+
+
+// if a property has a value of undefined, it won't show up in respose
+// so if there is a possibility of getting undefined, || it with ""

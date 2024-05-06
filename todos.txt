@@ -1,0 +1,2 @@
+- resolve .env issue
+sol. -> include dotenv.config in every file in which we use process.env

@@ -1,13 +1,18 @@
-import { v2 as cloudinary } from 'cloudinary';
 import fs from "fs";
+import dotenv from "dotenv";
 
-// configuration
+import { v2 as cloudinary } from 'cloudinary';
+dotenv.config({
+    path: "../.env"
+});
+
+// cloud configuration
+
 cloudinary.config({ 
-  cloud_name:  process.env.CLOUDINARY_CLOUD_NAME,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
-
 
 const uploadOnCloudinary = async (localFilePath) => {
     try {
@@ -25,6 +30,7 @@ const uploadOnCloudinary = async (localFilePath) => {
         return response;
     }
     catch(error) {
+        console.log("Error uploading files to cloudinary", error.message);
         fs.unlinkSync(localFilePath);
         return null;
     }

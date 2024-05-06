@@ -21,5 +21,7 @@ class ApiError extends Error {
     }
 }
 
+export { ApiError };
+
 // errors should always pass through this file
 // we need to make use of middlewares to achieve this
