@@ -11,3 +11,5 @@ const storage = multer.diskStorage({
 
 export const upload = multer({ storage });
 // upload is an instance of multer()
+
+// this helps in storing images locally

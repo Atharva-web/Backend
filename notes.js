@@ -55,3 +55,19 @@ console.log(age);
 
 // if a property has a value of undefined, it won't show up in respose
 // so if there is a possibility of getting undefined, || it with ""
+
+// db calls ko reduce karo
+// variables mein store karo
+
+// another js concept
+function foo() {
+    const rt = "t1";
+    const at = "t2";
+    return { rt, at };
+}
+
+const val = foo();
+
+console.log(val); // { rt: "t1", rt: "t2" }
+
+// when passing { username } as argument, it is shorthand for { username: username }

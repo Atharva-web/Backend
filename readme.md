@@ -1,1 +1,1 @@
-This is a demo of professional JS backend setup configuration
+This is a professional JS backend for video streaming and Twitter like application.

@@ -9,15 +9,6 @@ dotenv.config({
     path: "../.env"
 });
 
-// console.log("env variables loaded:", process.env.PORT);
-// console.log("MONGO_DB_URI:", process.env.MONGODB_URI);
-// console.log("ACCESS_TOKEN_SECRET:", process.env.ACCESS_TOKEN_SECRET);
-// console.log("REFRESH_TOKEN_EXPIRY", process.env.REFRESH_TOKEN_EXPIRY);
-// console.log("CLOUDINARY_CLOUD_NAME", process.env.CLOUDINARY_CLOUD_NAME);
-// console.log("CLOUDINARY_API_KEY", process.env.CLOUDINARY_API_KEY);
-
-// console.log("env variables loaded:", process.env.PORT);
-
 connectDB()
 .then(() => {
     // app.on(error, (error) => {

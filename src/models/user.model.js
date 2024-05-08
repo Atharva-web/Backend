@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-const { Schema, model } = mongoose;
-
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
+
+const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
     username: {
@@ -52,7 +52,7 @@ const userSchema = new Schema({
 
 // {schema.pre} middleware(hook) is used to do something before an event
 // use normal function here and not arrow function as
-// "this" in arrow function is lexically scoped
+// "this" in arrow function is lexically scoped, that's why we use normal function
 // "this" has access to all the fields of the schema
 
 userSchema.pre("save", async function(next) {
@@ -68,8 +68,8 @@ userSchema.pre("save", async function(next) {
 
 // defining several methods to userSchema
 
-userSchema.methods.isPasswordCorrect = async function(password) {
-    return await bcrypt.compare(password, this.password);
+userSchema.methods.isPasswordCorrect = async function(strPassword) {
+    return await bcrypt.compare(strPassword, this.password);
 }
 
 userSchema.methods.generateAccessToken = function() {
@@ -84,7 +84,7 @@ userSchema.methods.generateAccessToken = function() {
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
-    )
+    );
 }
 
 userSchema.methods.generateAccessToken = function() {
@@ -96,7 +96,7 @@ userSchema.methods.generateAccessToken = function() {
         {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
-    )
+    );
 }
 
 export const User = model("User", userSchema);

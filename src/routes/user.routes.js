@@ -1,9 +1,12 @@
 import { Router } from "express";
 
-import { registerUser }  from "../controllers/user.controller.js";
+import { registerUser, loginUser, logoutUser }  from "../controllers/user.controller.js";
+
 import { upload } from "../middlewares/multer.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 // adding a middleware here because we cannot handle files from req.body
 // middleware adds additional fields/data to req.body
+// form ka data to jaa raha hai, lekin images ko bhi leke jaao sath mein
 
 const router = Router();
 
@@ -20,6 +23,12 @@ router.route("/register")
         maxCount: 1
     }
 ]), registerUser);
+
+router.route("/login").post(loginUser);
+
+// secured routes
+
+router.route("/logout").post(verifyJWT, logoutUser);
 
 export default router;
 /*

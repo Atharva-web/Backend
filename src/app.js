@@ -16,7 +16,7 @@ app.use(express.urlencoded({
     limit: "16kb"
 }));
 app.use(express.static("public")); // public is a folder name which provides static data
-app.use(cookieParser());
+app.use(cookieParser()); // this allows access of cookies to req and res
 
 // import routes
 import userRouter from "./routes/user.routes.js";
