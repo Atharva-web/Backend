@@ -22,7 +22,7 @@ const verifyJWT = asyncHandler(async(req, res, next) => {
     
         next(); // my work here is done, pass the control to next middleware or method in the route
     }
-    catch (error) {
+    catch(error) {
         throw new ApiError(401, error.message || "Invalid Access Token"); // error?.message
     }
 });
